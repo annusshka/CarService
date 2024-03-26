@@ -5,8 +5,8 @@ import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.data.mongodb.core.mapping.Field;
 
-//@Getter
-//@Setter
+import java.util.List;
+
 @Document(collection = "client")
 @Data
 @AllArgsConstructor
@@ -31,13 +31,7 @@ public class Client {
     @Field("email")
     private String email;
 
-    /*
-    public Client() {}
-
-    public Client(String firstName, String surname) {
-        this.name = firstName;
-        this.surname = surname;
-    }*/
+    private List<Car> cars;
 
     @Override
     public String toString() {
@@ -48,6 +42,7 @@ public class Client {
                 ", fartherName=" + fartherName +
                 ", phone=" + phone +
                 ", email=" + email +
+                ", cars=" + cars.toString() +
                 "}";
     }
 }

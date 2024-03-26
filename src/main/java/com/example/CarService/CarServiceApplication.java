@@ -16,42 +16,20 @@ public class CarServiceApplication {
 	/*
 	@Bean
 	public CommandLineRunner commandLineRunner(
-			ClientRepository clientRepository
+			RepairRequestRepository requestRepository,
+			RepairRequestService service
 	) {
 		return args -> {
-			var client = Client.builder()
-					.name("Ann")
-					.fartherName("Sergeevna")
-					.surname("Telegina")
+			var client = RepairRequest.builder()
+					.id(new RepairRequestId(new ObjectId("65ebfd734ddfaf6f62395dd9"), "Y707YB"))
+					.problem("some problems")
 					.build();
-			clientRepository.insert(client);
+			requestRepository.save(client);
+			requestRepository.findAll();
+			requestRepository.findByIdCar("Y707YB");
+			requestRepository.findByIdClient(new ObjectId("65ebfd734ddfaf6f62395dd9"));
+			service.delete(client.getId());
+			requestRepository.findAll();
 		};
-	}*/
-	/*
-	@Override
-	public void run(String... args) throws Exception {
-
-		repository.deleteAll();
-
-		// save a couple of customers
-		repository.save(new Client("Alice", "Smith"));
-		repository.save(new Client("Bob", "Smith"));
-
-		System.out.println("Clients found with findAll():");
-		System.out.println("-------------------------------");
-		for (Client client : repository.findAll()) {
-			System.out.println(client);
-		}
-		System.out.println();
-
-		System.out.println("Clients found with findByFirstName('Alice'):");
-		System.out.println("--------------------------------");
-		System.out.println(repository.findByFirstName("Alice"));
-
-		System.out.println("Clients found with findByLastName('Smith'):");
-		System.out.println("--------------------------------");
-		for (Client client : repository.findByLastName("Smith")) {
-			System.out.println(client);
-		}
 	}*/
 }
